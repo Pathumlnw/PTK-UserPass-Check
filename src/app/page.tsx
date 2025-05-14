@@ -319,103 +319,103 @@ export default function Page() {
             </motion.div>
           </motion.div>
           {/* Student Profile Results */}
-<AnimatePresence>
-  {showResults && studentProfiles.length > 0 && (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="bg-gradient-to-br from-[rgba(255,255,255,0.15)] to-[rgba(255,255,255,0.05)] backdrop-blur-md border border-[rgba(255,255,255,0.2)] rounded-2xl p-8 shadow-xl overflow-hidden relative"
-    >
-      {/* Decorative elements */}
-      <div className="absolute -top-20 -right-20 w-40 h-40 bg-purple-500 opacity-10 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500 opacity-10 rounded-full blur-3xl"></div>
-      
-      <div className="flex items-center mb-6 relative z-10">
-        <div className=" p-3 rounded-lg mr-4">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-white"
-            viewBox="0 0 448 512"
-            fill="currentColor"
-          >
-            <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
-          </svg>
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-white text-shadow-lg">
-            ข้อมูลนักเรียน
-          </h2>
-          <p className="text-gray-200 text-sm mt-1">Student Information Dashboard</p>
-        </div>
-      </div>
+          <AnimatePresence>
+            {showResults && studentProfiles.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="bg-gradient-to-br from-[rgba(255,255,255,0.15)] to-[rgba(255,255,255,0.05)] backdrop-blur-md border border-[rgba(255,255,255,0.2)] rounded-2xl p-8 shadow-xl overflow-hidden relative"
+              >
+                {/* Decorative elements */}
+                <div className="absolute -top-20 -right-20 w-40 h-40 bg-purple-500 opacity-10 rounded-full blur-3xl"></div>
+                <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500 opacity-10 rounded-full blur-3xl"></div>
 
-      <div className="space-y-4">
-        {studentProfiles.map((profile, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: index * 0.1, duration: 0.4 }}
-            className="bg-white bg-opacity-95 rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
-          >
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 h-2"></div>
-            <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {Object.entries(profile).map(([key, value], idx) => (
-                  <motion.div
-                    key={key}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.03 + index * 0.1, duration: 0.3 }}
-                    className="group"
-                  >
-                    <div className="flex flex-col border-l-2 border-gray-200 group-hover:border-blue-500 pl-3 transition-all duration-300">
-                      <span className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">
-                        {formatFieldName(key)}
-                      </span>
-                      <span className="text-gray-800 font-medium">
-                        {value?.toString() || "—"}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
-  )}
+                <div className="flex items-center mb-6 relative z-10">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 mr-2 text-[#ffffff]"
+                    viewBox="0 0 512 512"
+                    fill="white"
+                    >
+                    <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                    </svg>
+                    <h2 className="text-xl text-shadow-md font-semibold text-white">
+                    ข้อมูลนักเรียน
+                    </h2>
+                </div>
 
-  {error && (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className="bg-gradient-to-r from-[rgba(255,75,75,0.15)] to-[rgba(255,40,40,0.1)] backdrop-blur-md border border-[rgba(255,75,75,0.3)] rounded-xl p-6 shadow-xl"
-    >
-      <div className="flex items-center">
-        <div className="bg-red-500 bg-opacity-20 p-2 rounded-lg mr-3">
-          <svg
-            className="h-6 w-6 text-red-500"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            fill="currentColor"
-          >
-            <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
-          </svg>
-        </div>
-        <div>
-          <p className="text-white font-medium">{error}</p>
-          <p className="text-red-200 text-sm mt-1">Please try again or contact support</p>
-        </div>
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
+                <div className="space-y-4">
+                  {studentProfiles.map((profile, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.1, duration: 0.4 }}
+                      className="bg-white bg-opacity-95 rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1"
+                    >
+                      <div className="bg-gradient-to-r from-blue-600 to-purple-600 h-2"></div>
+                      <div className="p-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                          {Object.entries(profile).map(([key, value], idx) => (
+                            <motion.div
+                              key={key}
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{
+                                delay: idx * 0.03 + index * 0.1,
+                                duration: 0.3,
+                              }}
+                              className="group"
+                            >
+                              <div className="flex flex-col border-l-2 border-gray-200 group-hover:border-blue-500 pl-3 transition-all duration-300">
+                                <span className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">
+                                  {formatFieldName(key)}
+                                </span>
+                                <span className="text-gray-800 font-medium">
+                                  {value?.toString() || "—"}
+                                </span>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="bg-gradient-to-r from-[rgba(255,75,75,0.15)] to-[rgba(255,40,40,0.1)] backdrop-blur-md border border-[rgba(255,75,75,0.3)] rounded-xl p-6 shadow-xl"
+              >
+                <div className="flex items-center">
+                  <div className="bg-red-500 bg-opacity-20 p-2 rounded-lg mr-3">
+                    <svg
+                      className="h-6 w-6 text-red-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                      fill="currentColor"
+                    >
+                      <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">{error}</p>
+                    <p className="text-red-200 text-sm mt-1">
+                      Please try again or contact support
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
           {/* Analytics Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -437,12 +437,12 @@ export default function Page() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="flex flex-col space-y-3">
               {/* Total Students */}
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="flex flex-col items-center p-3 bg-white shadow-lg rounded-lg"
+                className="flex items-center p-3 bg-white shadow-lg rounded-xl"
               >
                 <motion.div
                   initial={{ scale: 0 }}
@@ -453,41 +453,37 @@ export default function Page() {
                     damping: 20,
                     delay: 0.3,
                   }}
-                  className="p-2 rounded-full bg-[rgba(255,127,196,0.3)]"
+                  className="p-2 rounded-full bg-[rgba(255,127,196,0.3)] mr-4"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6 text-[#FF7FC4]"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                    viewBox="0 0 640 512"
+                    fill="currentColor"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                    />
+                    <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7 0c-14.7 0-26.7-11.9-26.7-26.7z" />
                   </svg>
                 </motion.div>
-                <p className="mt-2 text-sm text-gray-900 font-light opacity-80">
-                  จำนวนนักเรียนทั้งหมด
-                </p>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="text-2xl font-bold text-[#FF7FC4]"
-                >
-                  3827
-                </motion.p>
+                <div className="flex-grow">
+                  <p className="text-sm text-gray-900 font-light opacity-80">
+                    จำนวนนักเรียนทั้งหมด
+                  </p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                    className="text-2xl font-bold text-[#FF7FC4]"
+                  >
+                    3827
+                  </motion.p>
+                </div>
               </motion.div>
 
               {/* Male Students */}
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="flex flex-col items-center p-3 bg-white shadow-lg rounded-lg"
+                className="flex items-center p-3 bg-white shadow-lg rounded-xl"
               >
                 <motion.div
                   initial={{ scale: 0 }}
@@ -498,41 +494,37 @@ export default function Page() {
                     damping: 20,
                     delay: 0.5,
                   }}
-                  className="p-2 rounded-full bg-[rgba(99,179,237,0.3)]"
+                  className="p-2 rounded-full bg-[rgba(99,179,237,0.3)] mr-4"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6 text-[#63B3ED]"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                    viewBox="0 0 448 512"
+                    fill="currentColor"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                    />
+                    <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
                   </svg>
                 </motion.div>
-                <p className="mt-2 text-sm text-gray-900 font-light opacity-80">
-                  นักเรียนชาย
-                </p>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
-                  className="text-2xl font-bold text-[#63B3ED]"
-                >
-                  1595
-                </motion.p>
+                <div className="flex-grow">
+                  <p className="text-sm text-gray-900 font-light opacity-80">
+                    นักเรียนชาย
+                  </p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                    className="text-2xl font-bold text-[#63B3ED]"
+                  >
+                    1595
+                  </motion.p>
+                </div>
               </motion.div>
 
               {/* Female Students */}
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="flex flex-col items-center p-3 bg-white shadow-lg rounded-lg"
+                className="flex items-center p-3 bg-white shadow-lg rounded-xl"
               >
                 <motion.div
                   initial={{ scale: 0 }}
@@ -543,34 +535,30 @@ export default function Page() {
                     damping: 20,
                     delay: 0.7,
                   }}
-                  className="p-2 rounded-full bg-[rgba(246,135,179,0.3)]"
+                  className="p-2 rounded-full bg-[rgba(246,135,179,0.3)] mr-4"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6 text-[#F687B3]"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                    viewBox="0 0 448 512"
+                    fill="currentColor"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                    />
+                    <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
                   </svg>
                 </motion.div>
-                <p className="mt-2 text-sm text-gray-900 font-light opacity-80">
-                  นักเรียนหญิง
-                </p>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
-                  className="text-2xl font-bold text-[#F687B3]"
-                >
-                  2232
-                </motion.p>
+                <div className="flex-grow">
+                  <p className="text-sm text-gray-900 font-light opacity-80">
+                    นักเรียนหญิง
+                  </p>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.9 }}
+                    className="text-2xl font-bold text-[#F687B3]"
+                  >
+                    2232
+                  </motion.p>
+                </div>
               </motion.div>
             </div>
           </motion.div>{" "}
@@ -632,7 +620,8 @@ export default function Page() {
                 <div className="text-left">
                   <p className="font-medium">ดูข้อมูลนักเรียน</p>
                   <p className="text-sm font-light opacity-80">
-                    คลิกที่ปุ่ม &quot;ค้นหา&quot; เพื่อแสดงข้อมูลทั้งหมดของนักเรียน
+                    คลิกที่ปุ่ม &quot;ค้นหา&quot;
+                    เพื่อแสดงข้อมูลทั้งหมดของนักเรียน
                   </p>
                 </div>
               </motion.div>
