@@ -54,24 +54,24 @@ const anakotmaiFont = localFont({
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="th" className={anakotmaiFont.className}>
-      <body className="min-h-screen text-white overflow-hidden">
+      <body className="min-h-screen text-white overflow-y-auto">
         <div className="fixed inset-0 bg-gradient-to-br from-[#F89EBA] to-[#7F7FDB] animate-gradient-x"></div>
         <div className="fixed inset-0">
           {Array.from({ length: 20 }).map((_, i) => (
-        <div 
-          key={i}
-          className="absolute rounded-full bg-white/20 animate-float"
-          style={{
-            width: `${Math.random() * 100 + 20}px`,
-            height: `${Math.random() * 100 + 20}px`,
-            left: `${Math.random() * 100}vw`,
-            top: `${Math.random() * 100}vh`,
-            animationDuration: `${Math.random() * 10 + 10}s`,
-            animationDelay: `${Math.random() * 5}s`,
-            opacity: Math.random() * 0.3 + 0.1,
-            filter: 'blur(8px)'
-          }}
-        />
+            <div
+              key={i}
+              className="absolute rounded-full bg-white/20 animate-float"
+              style={{
+                width: `${Math.random() * 100 + 20}px`,
+                height: `${Math.random() * 100 + 20}px`,
+                left: `${Math.random() * 100}vw`,
+                top: `${Math.random() * 100}vh`,
+                animationDuration: `${Math.random() * 10 + 10}s`,
+                animationDelay: `${Math.random() * 5}s`,
+                opacity: Math.random() * 0.3 + 0.1,
+                filter: "blur(8px)",
+              }}
+            />
           ))}
         </div>
         <div className="fixed inset-0 bg-grid-white/25 pointer-events-none"></div>
