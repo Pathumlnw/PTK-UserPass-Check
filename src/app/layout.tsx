@@ -4,19 +4,19 @@ import localFont from "next/font/local";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "PTK Schedule Viewer",
-  description: "Check the school schedule for PathumThepWittayakarn School",
+  title: "ระบบฐานข้อมูลผู้ใช้งานระบบบริการนักเรียน",
+  description: "สำหรับลงทะเบียนวิชาทั่วไป วิชาเลือก กิจกรรมชุมนุม ภาคเรียนที่ 1/2568",
   openGraph: {
-    title: "PTK Schedule Viewer",
-    description: "Check the school schedule for PathumThepWittayakarn School",
-    url: "https://ptk-schedule-viewer.vercel.app", // Replace with your real domain
-    siteName: "PTK Schedule Viewer",
+    title: "ระบบฐานข้อมูลผู้ใช้งานระบบบริการนักเรียน",
+    description: "สำหรับลงทะเบียนวิชาทั่วไป วิชาเลือก กิจกรรมชุมนุม ภาคเรียนที่ 1/2568",
+    url: "https://ptk-userpass.vercel.app",
+    siteName: "ระบบฐานข้อมูลผู้ใช้งานระบบบริการนักเรียน",
     images: [
       {
-        url: "/preview-image.png", // Replace with the actual image URL
+        url: "/webpreview.png",
         width: 1200,
         height: 630,
-        alt: "PTK Schedule Viewer Preview",
+        alt: "ระบบฐานข้อมูลผู้ใช้งานระบบบริการนักเรียน",
       },
     ],
     type: "website",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PTK Schedule Viewer",
-    description: "Check the school schedule for PathumThepWittayakarn School",
-    images: ["/preview-image.png"], // Replace with the actual image URL
+    title: "ระบบฐานข้อมูลผู้ใช้งานระบบบริการนักเรียน",
+    description: "สำหรับลงทะเบียนวิชาทั่วไป วิชาเลือก กิจกรรมชุมนุม ภาคเรียนที่ 1/2568",
+    images: ["/webpreview.png"],
   },
 };
 
